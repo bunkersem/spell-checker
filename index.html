@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css" rel="stylesheet" integrity="sha384-gv0oNvwnqzF6ULI9TVsSmnULNb3zasNysvWwfT/s4l8k5I+g6oFz9dye0wg3rQ2Q"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="http://cssicon.space/css/icons.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="jumbotron mt-5">
+                        <h1 class="mt-0">Grammer Checker</h1>
+                        <p class="lead">Type or paste your text in the field below, select the language of your text and click Check Grammer to check your text.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="text-right">
+                                <div style="display: inline-block; max-width: 200px">
+                                    <select id="lang-select" class="form-control form-control-lg">
+                                        <option value="en_US">English US</option>
+                                        <option value="en_GB">English Great Britain</option>
+                                        <option value="es_ES">Espagnol</option>
+                                        <option value="de_DE">Deutsch</option>
+                                        <option value="fr_FR">Français</option>
+                                        <option value="it_IT">Italiano</option>
+                                    </select>
+                                </div>
+                                <button class="btn btn-primary" id="run-spell-check"> Check Grammer <span aria-hidden="true" class="refresh icon"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label for="comment"><b>Editor:</b></label>
+                                <div id="editor-outer">
+                                    <div class="form-control" id="editor" spellcheck="false" contenteditable="true"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container-fluid text-center">
+            <div class="row">
+                <div class="col-sm-6 col-xs-12">
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    &copy; 2018 <a href="https://bunkersem.github.com/portfolio" target="_blank">Echo Sierra Studio</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="msg-modal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    <p>One fine body&hellip;</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="imgmodal" class="modal" role="dialog" aria-expanded="false">
+        <span class="close">&times;</span>
+        <figure class="modal-content" id="modal-img" role="figure" aria-describedby="caption"></figure>
+        <div id="modal-caption" role="contentinfo"></div>
+    </div>
+    <noscript>
+        <!-- The No-Script Modal -->
+        <div id="noscript-modal" class="modal" role="dialog" aria-expanded="true" style="display: block; position: fixed; z-index: 1000; padding-top: 100px; left: 0px; top: 0px; width: 100%; height: 100%; overflow: auto; background-color: rgba(0, 0, 0, 0.9); transition: padding-top 100ms ease-out; box-sizing: border-box; font-family: 'Ubuntu', sans-serif, Verdana, Geneva, Tahoma;">
+            <div class="modal-content" style="margin: auto; display: block; width: 80%; max-width: 700px; padding: 40px; background: white; box-sizing: border-box; ;">
+                <h2 class="text-danger mt-1 mb-4" style="color: rgb(236, 78, 32); margin-top: 6px; margin-bottom: 36px; box-sizing: border-box; ;">Important!</h2>
+                <p class="noscript-msg" style="box-sizing: border-box;">
+                    This site requires JavaScript. Here are the
+                    <a href="https://www.enable-javascript.com/" target="_blank" class="text-primary" style="background-color: transparent; color: rgb(1, 111, 185); box-sizing: border-box; text-decoration: none; ;">
+                        instructions on how to enable JavaScript in your web browser</a>.
+                </p>
+            </div>
+        </div>
+    </noscript>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./assets/js/BJSpell.js"></script>
+    <script type="text/javascript" src="./assets/js/en_US.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js" integrity="sha256-THlgZSjqt7idNSdnUvGypTuXB5C4hV9kSuPYrbiq19o="
+        crossorigin="anonymous"></script>
+    <script>"use strict"</script>
+    <script src="./assets/js/spellcheck.js"></script>
+    <script src="./assets/js/util.js"></script>
+    <script src="./assets/js/smoothscroll.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
